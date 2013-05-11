@@ -15,7 +15,7 @@ public class WorldRender : MonoBehaviour {
 	public static extern void seed_random(long seed);*/
 
 	// BOXES x BOXES of size (BOXSIZE-1) x (BOXSIZE-1) units
-	public static int BOXES = 11, BOXRES = 5, BOXSCALE = 10;
+	public static int BOXES = 41, BOXRES = 3, BOXSCALE = 10;
 	public int blockCacheSize = 500;
 	//public PlayerManager pm;
 	
@@ -67,7 +67,13 @@ public class WorldRender : MonoBehaviour {
 
 	public void placeBlock(GameObject groundMesh, int gx, int gy, int x, int y) {
 		
-		AddBlockComponents(groundMesh);
+		//AddBlockComponents(groundMesh);
+		
+		GroundMesh gm = groundMesh.AddComponent<GroundMesh>();
+		
+		gm.gX = gx;
+		gm.gY = gy;
+		
 		PlaceGroundMeshGXGY( groundMesh, gx , gy); 
 		
 		groundMeshes[x][y] = groundMesh;
@@ -79,7 +85,7 @@ public class WorldRender : MonoBehaviour {
 	}
 	
 	private void AddBlockComponents(GameObject block){
-			block.AddComponent<GroundMesh>();
+		block.AddComponent<GroundMesh>();
 	}
 	
 	private void PlaceGroundMeshGXGY(GameObject groundMesh, int gX, int gY) {
@@ -191,12 +197,6 @@ public class WorldRender : MonoBehaviour {
 			
 		}
 		
-	}
-	
-	private GameObject GetFlatSegment() {
-		float [][] zeros = new float[BOXRES][];
-		for (int i = 0; i < BOXRES; i++) zeros[i] = new float[BOXRES];
-		return WeaveMaster(zeros);
 	}
 	
 	private GameObject WeaveMaster(float[][] nodes) {  	

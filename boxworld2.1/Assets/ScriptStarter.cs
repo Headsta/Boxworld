@@ -20,11 +20,7 @@ public class ScriptStarter : MonoBehaviour {
 		
 		//gameObject.GetComponent<WorldRender>().pm = gameObject.GetComponent<PlayerManager>();
 		//gameObject.GetComponent<PlayerManager>().wr = gameObject.GetComponent<WorldRender>();
-		
-	
-		
-		
-	
+
 		//gameObject.AddComponent<ParticleManager>();
 
 	}

@@ -13,6 +13,7 @@ public class InputController : MonoBehaviour {
 	Texture2D selectionTexture;
 	Texture2D roadTexture;
 	private Vector3 travelHere;
+	
 	// Use this for initialization
 	void Start(){
 		_transform = transform;
@@ -92,7 +93,7 @@ public class InputController : MonoBehaviour {
 		}
 		
 		
-		if(Input.GetKeyUp(KeyCode.R)){
+		if(Input.GetKeyUp(KeyCode.R)) {
 			// Road
 			Debug.Log("Road");
 			List<GameObject> theSelection = selection;
@@ -100,15 +101,39 @@ public class InputController : MonoBehaviour {
 			MakeSelectionToRoad(theSelection);
 			
 		}
-		if(Input.GetKeyUp(KeyCode.F)){
+		if(Input.GetKeyUp(KeyCode.F)) {
 			// Flatn
 			Debug.Log("Flatn");
 			List<GameObject> theSelection = selection;
 			Unselect();
+			
+			ArrayList blockData = new ArrayList();
+			
 			foreach(GameObject g in theSelection){
 				//g.renderer.material.mainTexture = RoadTexture();
-				g.GetComponent<GroundMesh>().Flatten();
+				GroundMesh gm = g.GetComponent<GroundMesh>();
+
+				//for (int i = 0; i < list.Count; i++) {
+					 
+				//Vector4 c = (Vector4) blockData[i];
+				//int x = (int) c.x, y = (int) c.y, gx = (int) c.z, gy = (int) c.w;
+					//BlockData block = new BlockData(x, y, gx, gy, BOXRES);  
+					
+				blockData.Add(new BlockData(0, 0, gm.gX, gm.gY, WorldRender.BOXRES));
+		
+				//}
+				
+				
+				//ConnectionHandler _con = new ConnectionHandler();
+				//con.GetBlockData(blockData);
+				
+				
+				
 			}
+			
+			ConnectionHandler con = Camera.main.GetComponent<WorldRender>().con;
+			con.FlatnBlocks(blockData);
+			
 		}
 		
 		LerpCameraPosition();

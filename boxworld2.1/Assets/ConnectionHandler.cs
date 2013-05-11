@@ -75,25 +75,15 @@ public class ConnectionHandler {
 	}
 	
 	public void GetBlockData(ArrayList blockSpace) { 
-		
-		//byte[] cmddata = pack_int(0);
-		//sock.Send(cmddata, cmddata.Length, 0); 
-		
-		//byte[] gxdata = pack_int(_gx);
-		//sock.Send(gxdata, gxdata.Length, 0); 	
-		
-		//byte[] gydata = pack_int(_gy);
-		//sock.Send(gydata, gydata.Length, 0); 	
-		
+
 		byte[] cmddata = pack_int((int) Commands.GETBLOCK);
 		sock.Send(cmddata, cmddata.Length, 0); 
 		
 		byte[] intdata = pack_int(blockSpace.Count);
 		sock.Send(intdata, intdata.Length, 0); 
 		
-		Debug.Log("Requesting " + intdata.Length + " blocks");
+		Debug.Log("Requesting " + blockSpace.Count + " blocks");
 		
-		//byte[] intdata = new byte[4];
 		for (int bc = 0; bc < blockSpace.Count; bc++ ) {
 			
 			BlockData bd = (BlockData) blockSpace[bc];
@@ -113,16 +103,13 @@ public class ConnectionHandler {
 		
 		byte[] tfloatdata = new byte[bytes_to_receive];
 		
-		//Debug.Log(Time.time + " start reading..");
 		
 		int read = 0, total = 0;
 		do {
 			read = sock.Receive(tfloatdata, total, bytes_to_receive - total, 0);
 			total += read;
-			//Debug.Log(Time.time + " reading..");
 		} while (total < bytes_to_receive);
 		
-		//Debug.Log(Time.time + " done reading.. read "+ total);
 		
 		bytesRecv += total;
 		for (int bc = 0, i = 0; bc < blockSpace.Count; bc++ ) {
@@ -136,71 +123,35 @@ public class ConnectionHandler {
 				}
 				
 			}
-			//Debug.Log(Time.time + " placing");
 		}
-		
-		//Debug.Log(Time.time + " done placing.. read "+ total);
-		
-		//print("Read block " + gx + ", " + gy);
-		//Debug.Log("Read block " + gx + ", " + gy);
-		
+	
 	}
 	
-	public void dig() {
+	public void FlatnBlocks(ArrayList blocks) {
 		
-		byte[] cmddata = {1,0,0,0};
+		byte[] cmddata = pack_int((int) Commands.FLATTEN);
 		sock.Send(cmddata, cmddata.Length, 0); 
 		
-	}
-/*
-	public void get_block_datao(int gx, int gy, float[][] currentMesh, int xo, int yo) {
-				
-		byte[] intdata = pack_int(gx);
-		sock.Send(intdata, intdata.Length, 0); 
-
-		intdata = pack_int(gy);
+		byte[] intdata = pack_int(blocks.Count);
 		sock.Send(intdata, intdata.Length, 0); 
 		
-		//int numfloats = WorldRender.BOXES * WorldRender.BOXSIZE; //(((LocalWorld.BLOCKS) * (LocalWorld.BLOCKSIZE - 1)) + 1);
-		//numfloats *= numfloats;
+		Debug.Log("Flattening " + intdata.Length + " blocks");
 		
-		//Debug.Log("Getting " + numfloats + " floats of data, bytes: " + (numfloats * 4));
-		
-		//byte[] floatdata = new byte[numfloats];
-		//float[] floatdata = new float[numfloats];
-		
-		byte[] tfloatdata = new byte[4];			
+		for (int bc = 0; bc < blocks.Count; bc++ ) {
 			
-		//for (int cblock = 0; cblock < LocalWorld.BLOCKS; cblock++) {
-		for (int x = 0; x < WorldRender.BOXSIZE; x++) {
-			for (int y = 0; y < WorldRender.BOXSIZE; y++) {
-				sock.Receive(tfloatdata, 4, 0);
-				currentMesh[x+xo][y+yo] = (float) BitConverter.ToSingle(tfloatdata, 0);
-			}
+			BlockData bd = (BlockData) blocks[bc];
+			int gx = bd.gx, gy = bd.gy;
+			
+			intdata = pack_int(gx); 
+			sock.Send(intdata, intdata.Length, 0); 
+	
+			intdata = pack_int(gy);
+			sock.Send(intdata, intdata.Length, 0);  
+			
 		}
 		
-		//Debug.Log("random val: " + floatdata[10]);
 		
-		//Debug.Log("done");
-		
-	}	*/
-	/*
-
-		
-		byte[] bytes = { 0, 0, 0, 25 };
-		
-		// If the system architecture is little-endian (that is, little end first),
-		// reverse the byte array.
-		if (BitConverter.IsLittleEndian)
-		    Array.Reverse(bytes);
-		
-		int i = BitConverter.ToInt32(bytes, 0);
-		Console.WriteLine("int: {0}", i);
-		// Output: int: 25
-
-
-	*/
-	
+	}
 	
 	
 }
