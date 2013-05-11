@@ -5,11 +5,13 @@ using System.IO;
 using UnityEngine;
 using System.Collections;
 
-public class ConnectionHandler{
+public class ConnectionHandler {
 	
 	Socket sock;
 	public static int bytesSent = 0;
 	public static int bytesRecv = 0;
+	
+	enum Commands { GETBLOCK, FLATTEN }
 	
 	public ConnectionHandler () {
 		
@@ -34,7 +36,7 @@ public class ConnectionHandler{
         //foreach(IPAddress address in hostEntry.AddressList) {
 			
 			//89.253.106.101
-			byte [] ip = { 192,168,0,123 };
+			byte [] ip = { 192,168,0,202 };
 			//byte[] ip = { 192,168,0,2 };
 			IPAddress ipaddr = new IPAddress(ip);
 			IPEndPoint ipe = new IPEndPoint(ipaddr, port);
@@ -72,7 +74,7 @@ public class ConnectionHandler{
 		return intdata;
 	}
 	
-	public void get_block_data(ArrayList blockSpace, int _gx, int _gy) { 
+	public void GetBlockData(ArrayList blockSpace) { 
 		
 		//byte[] cmddata = pack_int(0);
 		//sock.Send(cmddata, cmddata.Length, 0); 
@@ -83,8 +85,13 @@ public class ConnectionHandler{
 		//byte[] gydata = pack_int(_gy);
 		//sock.Send(gydata, gydata.Length, 0); 	
 		
+		byte[] cmddata = pack_int((int) Commands.GETBLOCK);
+		sock.Send(cmddata, cmddata.Length, 0); 
+		
 		byte[] intdata = pack_int(blockSpace.Count);
 		sock.Send(intdata, intdata.Length, 0); 
+		
+		Debug.Log("Requesting " + intdata.Length + " blocks");
 		
 		//byte[] intdata = new byte[4];
 		for (int bc = 0; bc < blockSpace.Count; bc++ ) {

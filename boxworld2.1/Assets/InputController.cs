@@ -103,7 +103,12 @@ public class InputController : MonoBehaviour {
 		if(Input.GetKeyUp(KeyCode.F)){
 			// Flatn
 			Debug.Log("Flatn");
+			List<GameObject> theSelection = selection;
 			Unselect();
+			foreach(GameObject g in theSelection){
+				//g.renderer.material.mainTexture = RoadTexture();
+				g.GetComponent<GroundMesh>().Flatten();
+			}
 		}
 		
 		LerpCameraPosition();

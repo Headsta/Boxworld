@@ -114,4 +114,29 @@ public class GroundMesh : MonoBehaviour {
 		mesh.RecalculateNormals();
 		return mesh;
 	}
+	
+	public void Flatten() {
+		
+		MeshFilter mf = GetComponent<MeshFilter>();
+		//MeshRenderer mr = GetComponentt<MeshRenderer>();
+		//MeshCollider mc = GetComponent<MeshCollider>();
+		
+		Vector3 [] newverts = new Vector3[mf.mesh.vertices.Length];
+		float avrgy = 0;
+		for ( int i = 0; i < mf.mesh.vertices.Length; i++ ) {
+			//newverts[i] = new Vector3(mf.mesh.vertices[i].x, 0, mf.mesh.vertices[i].z);
+			avrgy += mf.mesh.vertices[i].y;
+		}
+		avrgy /= mf.mesh.vertices.Length;
+		for ( int i = 0; i < mf.mesh.vertices.Length; i++ ) {
+			newverts[i] = new Vector3(mf.mesh.vertices[i].x, avrgy, mf.mesh.vertices[i].z);
+		}
+		
+		mf.mesh.vertices = newverts;
+		DestroyImmediate(GetComponent<MeshCollider>());
+		gameObject.AddComponent<MeshCollider>();
+		//.
+		//foreach (Vector3 v in mf.mesh.vertices) Debug.Log("Vec " + v);
+		
+	}
 }

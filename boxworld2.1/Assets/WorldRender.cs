@@ -169,7 +169,7 @@ public class WorldRender : MonoBehaviour {
 	
 	void GetBlocks(ArrayList list, int _gx, int _gy) {  
 		
-		ArrayList blockData = new ArrayList();
+		ArrayList blockData = new ArrayList();  
 		
 		for (int i = 0; i < list.Count; i++) {
 			 
@@ -183,7 +183,7 @@ public class WorldRender : MonoBehaviour {
 		
 		
 		//ConnectionHandler _con = new ConnectionHandler();
-		con.get_block_data(blockData, _gx, _gy);
+		con.GetBlockData(blockData);
 		print("Got blocks! " + blockData.Count);
 		
 		foreach (BlockData bd in blockData) {
