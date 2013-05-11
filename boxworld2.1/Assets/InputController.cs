@@ -75,7 +75,6 @@ public class InputController : MonoBehaviour {
 		}
 		
 		if(Input.GetMouseButton(1)){
-			if(!clicklean2){
 				RaycastHit hit;
 				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 10000.0f)){
 					if(hit.collider.gameObject.name.Contains("ground")){
@@ -84,7 +83,6 @@ public class InputController : MonoBehaviour {
 						clicklean2 = true;
 					}
 				}
-			}
 		}else{
 			clicklean2 = false;
 		}
