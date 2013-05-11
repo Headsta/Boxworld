@@ -15,7 +15,7 @@ public class WorldRender : MonoBehaviour {
 	public static extern void seed_random(long seed);*/
 
 	// BOXES x BOXES of size (BOXSIZE-1) x (BOXSIZE-1) units
-	public static int BOXES = 11, BOXRES = 5, BOXSCALE = 10;
+	public static int BOXES = 41, BOXRES = 3, BOXSCALE = 10;
 	public int blockCacheSize = 500;
 	//public PlayerManager pm;
 	
