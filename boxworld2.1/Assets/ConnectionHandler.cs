@@ -135,7 +135,10 @@ public class ConnectionHandler {
 		byte[] intdata = pack_int(blocks.Count);
 		sock.Send(intdata, intdata.Length, 0); 
 		
-		Debug.Log("Flattening " + intdata.Length + " blocks");
+		intdata = pack_int(5);
+		sock.Send(intdata, intdata.Length, 0); 
+		
+		Debug.Log("Flattening " + blocks.Count + " blocks");
 		
 		for (int bc = 0; bc < blocks.Count; bc++ ) {
 			

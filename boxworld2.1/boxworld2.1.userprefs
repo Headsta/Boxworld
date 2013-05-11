@@ -1,6 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\InputController.cs">
+    <Files>
+      <File FileName="Assets\WorldRender.cs" Line="40" Column="1" />
+      <File FileName="Assets\InputController.cs" Line="216" Column="5" />
+      <File FileName="Assets\BlockCache.cs" Line="1" Column="1" />
+      <File FileName="Assets\ConnectionHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\GroundMesh.cs" Line="1" Column="1" />
+      <File FileName="Assets\BlockData.cs" Line="1" Column="1" />
+      <File FileName="Assets\ScriptStarter.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
