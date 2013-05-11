@@ -13,8 +13,9 @@ public class ScriptStarter : MonoBehaviour {
 	
 	//ConnectionHandler con = new ConnectionHandler();
 	
-	void Awake () {
+	void Awake(){
 		
+		gameObject.AddComponent<InputController>();
 		
 		WorldRender wr = dwarf.AddComponent<WorldRender>();
 		dwarfAnim.AddComponent<NewDwarfAnimation>();

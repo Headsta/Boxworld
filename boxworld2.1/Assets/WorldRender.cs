@@ -61,8 +61,7 @@ public class WorldRender : MonoBehaviour {
         
 		*/
 		
-		GameObject flat = GetFlatSegment();
-		placeBlock(flat, 0,0,0,0);
+
 
 	}
 
