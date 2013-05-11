@@ -9,22 +9,37 @@ public class InputController : MonoBehaviour {
 	Transform _transform;
 	GameObject _gameObject;
 	private List<GameObject> selection;
-	private List<Texture2D> selectedTextures;
+	private List<Material> selectedTextures;
 	Texture2D selectionTexture;
 	Texture2D roadTexture;
 	Texture2D waterTexture;
 	Texture2D demolishTexture;
 	Texture2D grassTexture;
+	
+	Material selectionMaterial;
+	Material roadTMaterial;
+	Material waterMaterial;
+	Material demolishMaterial;
+	Material grassMaterial;
 	private Vector3 travelHere;
 	// Use this for initialization
 	void Start(){
 		_transform = transform;
 		_gameObject = gameObject;
+		
+		
 		CreateSelectionTexture();
 		CreateRoadTexture();
 		CreateGrassTexture();
 		CreateDemolishTexture();
 		CreateWaterTexture();
+		
+		selectionMaterial = Resources.Load("Materials/Selection") as Material;
+		grassMaterial = Resources.Load("Materials/Grass") as Material;
+		demolishMaterial = Resources.Load("Materials/Demolish") as Material;
+		roadTMaterial = Resources.Load("Materials/Road") as Material;
+		waterMaterial = Resources.Load("Materials/Water") as Material;
+		
 		travelHere = _transform.position;
 		travelHere.y+=350;
 	}
@@ -73,7 +88,7 @@ public class InputController : MonoBehaviour {
 	private void Unselect(){
 		if(selection != null){
 			for(int i = 0; i<selection.Count;i++){
-				selection[i].renderer.material.mainTexture = selectedTextures[i];
+				selection[i].renderer.material = selectedTextures[i];
 			}
 			selectedTextures = null;
 			selection = null;
@@ -88,13 +103,13 @@ public class InputController : MonoBehaviour {
 				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 10000.0f)){
 					if(hit.collider.gameObject.name.Contains("ground")){
 						selection = new List<GameObject>();
-						selectedTextures = new List<Texture2D>();
+						selectedTextures = new List<Material>();
 						AddSelection(hit.collider.gameObject);
 						clicklean = true;
 					}else{
 						if(hit.collider.transform.root != null && hit.collider.transform.root.gameObject.name.Contains("ground")){
 							selection = new List<GameObject>();
-							selectedTextures = new List<Texture2D>();
+							selectedTextures = new List<Material>();
 							AddSelection(hit.collider.transform.root.gameObject);
 							clicklean = true;
 						}
@@ -111,7 +126,6 @@ public class InputController : MonoBehaviour {
 						if(hit.collider.transform.root != null && hit.collider.transform.root.gameObject.name.Contains("ground")){
 							if(!selection.Contains(hit.collider.transform.root.gameObject)){
 								AddSelection(hit.collider.transform.root.gameObject);
-								Debug.Log("added");
 							}
 						}
 					}
@@ -140,8 +154,6 @@ public class InputController : MonoBehaviour {
 		
 		
 		if(Input.GetKeyUp(KeyCode.R)){
-			// Road
-			Debug.Log("Road");
 			List<GameObject> theSelection = selection;
 			Unselect();
 			MakeSelectionToRoad(theSelection);
@@ -149,8 +161,6 @@ public class InputController : MonoBehaviour {
 		}
 		
 		if(Input.GetKeyUp(KeyCode.G)){
-			// Road
-			Debug.Log("grass");
 			List<GameObject> theSelection = selection;
 			Unselect();
 			MakeSelectionToGrass(theSelection);
@@ -158,8 +168,6 @@ public class InputController : MonoBehaviour {
 		}
 		
 		if(Input.GetKeyUp(KeyCode.D)){
-			// Road
-			Debug.Log("demolish");
 			List<GameObject> theSelection = selection;
 			Unselect();
 			MakeSelectionToDemolish(theSelection);
@@ -167,8 +175,6 @@ public class InputController : MonoBehaviour {
 		}
 		
 		if(Input.GetKeyUp(KeyCode.W)){
-			// Road
-			Debug.Log("water");
 			List<GameObject> theSelection = selection;
 			Unselect();
 			MakeSelectionToWater(theSelection);
@@ -177,16 +183,12 @@ public class InputController : MonoBehaviour {
 		
 		
 		if(Input.GetKeyUp(KeyCode.H)){
-			// Road
-			Debug.Log("Road");
 			List<GameObject> theSelection = selection;
 			Unselect();
 			BuildHouses(theSelection);
 			
 		}
 		if(Input.GetKeyUp(KeyCode.F)){
-			// Flatn
-			Debug.Log("Flatn");
 			List<GameObject> theSelection = selection;
 			Unselect();
 			foreach(GameObject g in theSelection){
@@ -242,25 +244,25 @@ public class InputController : MonoBehaviour {
 	
 	private void AddSelection(GameObject g){
 		selection.Add(g);
-		selectedTextures.Add((Texture2D)g.renderer.material.mainTexture);
-		g.renderer.material.mainTexture = selectionTexture;
+		selectedTextures.Add(g.renderer.material);
+		g.renderer.material = selectionMaterial;
 	}
 	
 	private void MakeSelectionToRoad(List<GameObject> theSelection){
 		foreach(GameObject g in theSelection){
-			g.renderer.material.mainTexture = roadTexture;
+			g.renderer.material = roadTMaterial;
 		}
 	}
 	
 	private void MakeSelectionToWater(List<GameObject> theSelection){
 		foreach(GameObject g in theSelection){
-			g.renderer.material.mainTexture = waterTexture;
+			g.renderer.material = waterMaterial;
 		}
 	}
 	
 	private void MakeSelectionToDemolish(List<GameObject> theSelection){
 		foreach(GameObject g in theSelection){
-			g.renderer.material.mainTexture = demolishTexture;
+			g.renderer.material = demolishMaterial;
 			for(int i = 0; i < g.transform.GetChildCount(); i++){
 				Destroy(g.transform.GetChild(i).gameObject);
 			}
@@ -269,7 +271,7 @@ public class InputController : MonoBehaviour {
 	
 	private void MakeSelectionToGrass(List<GameObject> theSelection){
 		foreach(GameObject g in theSelection){
-			g.renderer.material.mainTexture = grassTexture;
+			g.renderer.material = grassMaterial;
 		}
 	}
 }

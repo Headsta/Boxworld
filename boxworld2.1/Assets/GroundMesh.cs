@@ -27,7 +27,7 @@ public class GroundMesh : MonoBehaviour {
 				//myGameObject.AddComponent<MeshRenderer>();
 		//myGameObject.GetComponent<MeshFilter>().mesh.RecalculateBounds();
 		//myGameObject.GetComponent<MeshFilter>().mesh.name = "Grass";
-		myGameObject.renderer.material = Grass();
+		myGameObject.renderer.material = Camera.main.GetComponent<WorldRender>().grassMaterial;//Grass();
 		
 	}
 	
