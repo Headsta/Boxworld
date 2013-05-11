@@ -16,7 +16,7 @@ public class ConnectionHandler{
 		Debug.Log("Trying to connect\n");
 		
 		//string server = "85.24.142.30";
-		string server = "192.168.0.123";
+		string server = "192.168.0.202";
 		//string server = "rcp.funkar.nu";
 		int port = 1213;
 			
