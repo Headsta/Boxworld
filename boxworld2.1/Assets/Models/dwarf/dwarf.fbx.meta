@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 7031cccf512ee5d408b7ab9d0b56675e
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: axe
+    100004: Joint38
+    100006: Joint37
+    100008: Joint41
+    100010: body
+    100012: Joint36
+    100014: head
+    100016: pads
+    100018: Joint42
+    100020: top
+    100022: Joint43
+    100024: Joint40
+    100026: Joint39
+    100028: cam
+    100030: hit
+    100032: end
+    100034: weapon
+    100036: Joint29
+    100038: Joint28
+    100040: Joint27
+    100042: Joint26
+    100044: Joint25
+    100046: rwrist
+    100048: relbo
+    100050: rsholda
+    100052: Joint21
+    100054: Joint20
+    100056: Joint19
+    100058: Joint18
+    100060: Joint17
+    100062: lwrist
+    100064: lelbo
+    100066: lsholda
+    100068: pad1
+    100070: pad2
+    100072: top 1
+    100074: Joint43 1
+    100076: Joint42 1
+    100078: Joint38 1
+    100080: Joint37 1
+    100082: Joint41 1
+    100084: Joint40 1
+    100086: Joint39 1
+    100088: Joint36 1
+    100090: head 1
+    100092: spine1
+    100094: Joint76
+    100096: Joint75
+    100098: spine2
+    100100: rtoe
+    100102: rankle
+    100104: rknee
+    100106: rhip
+    100108: ltoe
+    100110: lankle
+    100112: lknee
+    100114: lhip
+    100116: middle
+    100118: base
+    400000: //RootNode
+    400002: axe
+    400004: Joint38
+    400006: Joint37
+    400008: Joint41
+    400010: body
+    400012: Joint36
+    400014: head
+    400016: pads
+    400018: Joint42
+    400020: top
+    400022: Joint43
+    400024: Joint40
+    400026: Joint39
+    400028: cam
+    400030: hit
+    400032: end
+    400034: weapon
+    400036: Joint29
+    400038: Joint28
+    400040: Joint27
+    400042: Joint26
+    400044: Joint25
+    400046: rwrist
+    400048: relbo
+    400050: rsholda
+    400052: Joint21
+    400054: Joint20
+    400056: Joint19
+    400058: Joint18
+    400060: Joint17
+    400062: lwrist
+    400064: lelbo
+    400066: lsholda
+    400068: pad1
+    400070: pad2
+    400072: top 1
+    400074: Joint43 1
+    400076: Joint42 1
+    400078: Joint38 1
+    400080: Joint37 1
+    400082: Joint41 1
+    400084: Joint40 1
+    400086: Joint39 1
+    400088: Joint36 1
+    400090: head 1
+    400092: spine1
+    400094: Joint76
+    400096: Joint75
+    400098: spine2
+    400100: rtoe
+    400102: rankle
+    400104: rknee
+    400106: rhip
+    400108: ltoe
+    400110: lankle
+    400112: lknee
+    400114: lhip
+    400116: middle
+    400118: base
+    4300000: pads
+    4300002: body
+    4300004: axe
+    7400000: Animation
+    11100000: //RootNode
+    13700000: axe
+    13700002: body
+    13700004: pads
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 
