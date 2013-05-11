@@ -29,6 +29,11 @@ public class WorldRender : MonoBehaviour {
 	public ConnectionHandler con = new ConnectionHandler();
 	
 	public string groundName = "Newground";
+	public Material grassMaterial;
+	
+	private void Awake(){
+		grassMaterial = Resources.Load("Materials/Grass") as Material;
+	}
 	
 	void Start () {
 		
@@ -219,7 +224,7 @@ public class WorldRender : MonoBehaviour {
 		int index = 0;
 		for ( int i=0;i<length;i++){
 			for(int ii=0;ii<length;ii++){
-				uv[index] = new Vector2((float)i/4,(float)ii/4);
+				uv[index] = new Vector2((float)i/2,(float)ii/2);
 				index++;
 			}
 		}
@@ -248,7 +253,7 @@ public class WorldRender : MonoBehaviour {
 				
 				verts[br] = new Vector3((-halfsize + j) * BOXSCALE, nodes[i][j],  (-halfsize + i) * BOXSCALE);
 				
-				if (Random.Range(0,2) > 0) {
+				if (Random.Range(0,0) > 0) {
 					
 					triangles[triIt++] = bl;
 					triangles[triIt++] = tr;
@@ -267,6 +272,7 @@ public class WorldRender : MonoBehaviour {
 					triangles[triIt++] = br;
 					triangles[triIt++] = tl;
 				}
+				
 			}
 		}
 		
