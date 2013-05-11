@@ -45,7 +45,7 @@ public class WorldRender : MonoBehaviour {
 		groundMeshes = new GameObject[BOXES][];
 		for (int i = 0; i < groundMeshes.Length; i++) groundMeshes[i] = new GameObject[groundMeshes.Length];
 		
-		//UpdateLocalCoordinates(0,0);
+		UpdateLocalCoordinates(0,0);
 		
 		
 		//con = new ConnectionHandler();
