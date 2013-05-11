@@ -45,7 +45,7 @@ public class WorldRender : MonoBehaviour {
 		groundMeshes = new GameObject[BOXES][];
 		for (int i = 0; i < groundMeshes.Length; i++) groundMeshes[i] = new GameObject[groundMeshes.Length];
 		
-		//UpdateLocalCoordinates(0,0);
+		UpdateLocalCoordinates(0,0);
 		
 		
 		//con = new ConnectionHandler();
@@ -59,10 +59,10 @@ public class WorldRender : MonoBehaviour {
 		for( int j = 0; j < 6; j++ ) 
 			print((nums[j] % 10) + 1);
         
+		*/
 		
 		GameObject flat = GetFlatSegment();
 		placeBlock(flat, 0,0,0,0);
-		*/
 
 	}
 
