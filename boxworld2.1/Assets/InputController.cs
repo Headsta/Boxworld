@@ -88,7 +88,7 @@ public class InputController : MonoBehaviour {
 		}
 		
 		if(Input.GetAxis ("Mouse ScrollWheel") != 0.0f){
-			CameraZoom(Input.GetAxis ("Mouse ScrollWheel")*40);
+			CameraZoom(-Input.GetAxis ("Mouse ScrollWheel")*40);
 		}
 		
 		
