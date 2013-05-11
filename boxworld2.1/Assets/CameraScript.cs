@@ -21,11 +21,11 @@ public class NewDwarfAnimation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		animation.AddClip(animation.clip,"Run", 21, 24);
+		/*animation.AddClip(animation.clip,"Run", 21, 24);
 		animation.AddClip(animation.clip,"Idle", 290, 350 );
 		animation.AddClip(animation.clip,"Jump", 29, 40 );
 		animation["Run"].speed = 0.5f;
-		animation["Run"].wrapMode = WrapMode.PingPong;
+		animation["Run"].wrapMode = WrapMode.PingPong;*/
 		
 		/*animation.AddClip(animation.clip,"Run", 15, 25);
 		animation.AddClip(animation.clip,"Idle", 290, 350 );*/
@@ -45,7 +45,7 @@ public class NewDwarfAnimation : MonoBehaviour {
 			animation["Animation"].enabled = true;
 		}*/
 		
-		if (Input.GetMouseButton(0)) {
+		/*if (Input.GetMouseButton(0)) {
 			
 			//print("Mouse.x " + Input.mousePosition.x + " width " + Screen.width);
 			
@@ -69,16 +69,7 @@ public class NewDwarfAnimation : MonoBehaviour {
 			//Camera.mainCamera.GetComponent
 			
 			//body.velocity *= 0.5f;
-			
-			/*
-			RaycastHit hitt;
-			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit , 1000.0f)){
-				if(hitt.collider.gameObject == gameObject || hit.collider.transform){
-					
-				}
-			}
-			*/
-			
+		
 
 			animation.CrossFade("Run");
 			transform.parent.LookAt(target);
@@ -88,7 +79,7 @@ public class NewDwarfAnimation : MonoBehaviour {
 		
 		if (Input.GetMouseButton(1)) {
 			wr.con.dig(); 
-		}
+		}*/
 		
 		
 		getPos(ref currentPosition);
@@ -108,7 +99,7 @@ public class NewDwarfAnimation : MonoBehaviour {
 		
 		//return;
 		
-		if ((target - transform.position).sqrMagnitude > 5) {
+		/*if ((target - transform.position).sqrMagnitude > 5) {
 			
 			if (!animation.isPlaying) {
 				//animation.Stop();
@@ -129,7 +120,9 @@ public class NewDwarfAnimation : MonoBehaviour {
 			if (!animation.isPlaying) {
 				animation.CrossFade("Idle", 0.25f);
 			}
-		}
+		}*/
+		
+		
 	}
 	
 	public void getPos(ref Vector2 vec) {
