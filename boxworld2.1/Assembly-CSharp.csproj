@@ -49,6 +49,7 @@
      <Compile Include="Assets\CameraTraveler.cs" />
      <Compile Include="Assets\ConnectionHandler.cs" />
      <Compile Include="Assets\GroundMesh.cs" />
+     <Compile Include="Assets\InputController.cs" />
      <Compile Include="Assets\NewDwarfAnimation.cs" />
      <Compile Include="Assets\NewZombie.cs" />
      <Compile Include="Assets\NormalDistRing.cs" />
