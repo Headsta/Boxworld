@@ -169,7 +169,7 @@ public class WorldRender : MonoBehaviour {
 	
 	void GetBlocks(ArrayList list, int _gx, int _gy) {  
 		
-		ArrayList blockData = new ArrayList();
+		ArrayList blockData = new ArrayList();  
 		
 		for (int i = 0; i < list.Count; i++) {
 			 
