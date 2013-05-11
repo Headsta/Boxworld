@@ -183,7 +183,7 @@ public class WorldRender : MonoBehaviour {
 		
 		
 		//ConnectionHandler _con = new ConnectionHandler();
-		con.get_block_data(blockData, _gx, _gy);
+		con.GetBlockData(blockData);
 		print("Got blocks! " + blockData.Count);
 		
 		foreach (BlockData bd in blockData) {
