@@ -27,7 +27,7 @@ public class GroundMesh : MonoBehaviour {
 				//myGameObject.AddComponent<MeshRenderer>();
 		//myGameObject.GetComponent<MeshFilter>().mesh.RecalculateBounds();
 		//myGameObject.GetComponent<MeshFilter>().mesh.name = "Grass";
-		myGameObject.renderer.material = CheckerdDiffuse();
+		myGameObject.renderer.material = Grass();
 		
 	}
 	
@@ -95,6 +95,21 @@ public class GroundMesh : MonoBehaviour {
 		Texture2D t = new Texture2D(2,2);
 		Color w = new Color(1f,1f,1f,1f);
 		Color g = new Color(.5f,.5f,.5f,1f);
+			t.SetPixel(0,0,g);
+			t.SetPixel(1,0,w);
+			t.SetPixel(1,1,g);
+			t.SetPixel(0,1,w);
+			t.Apply();
+			t.filterMode = FilterMode.Point;
+			m.mainTexture = t;
+		return m;
+	}
+	
+	private Material Grass(){
+		Material m = new Material(Shader.Find("VertexLit"));
+		Texture2D t = new Texture2D(2,2);
+		Color w = Color.green;
+		Color g = Color.green;
 			t.SetPixel(0,0,g);
 			t.SetPixel(1,0,w);
 			t.SetPixel(1,1,g);
